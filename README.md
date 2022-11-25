@@ -1,3 +1,10 @@
+# tiny file dialogs
+
+Unofficial version adapted to work with CPM.cmake ([Original repo](https://sourceforge.net/projects/tinyfiledialogs/))
+
+Only C/C++ files are included.
+
+```text
 tiny file dialogs ( cross-platform C C++ ) v3.9.0 [Nov 3, 2022] zlib licence
  _________
 /         \   Tray-popup InputBox PasswordBox MessageBox Notification Beep
@@ -33,7 +40,7 @@ Bindings for LUA and C# dll, Haskell, Fortran. Included in LWJGL(java), Rust, Al
 | |                                                                            | |
 | | on windows:                                                                | |
 | |  - for UTF-16, use the wchar_t functions at the bottom of the header file  | |
-| |  - _wfopen() requires wchar_t                                              | |
+| |  -_wfopen() requires wchar_t                                              | |
 | |                                                                            | |
 | |  - in tinyfiledialogs, char is UTF-8 by default (since v3.6)               | |
 | |  - but fopen() expects MBCS (not UTF-8)                                    | |
@@ -47,49 +54,49 @@ Bindings for LUA and C# dll, Haskell, Fortran. Included in LWJGL(java), Rust, Al
 void tinyfd_beep();
 
 int tinyfd_notifyPopup(
-    char const * aTitle , // NULL or ""
-    char const * aMessage , // NULL or "" may contain \n \t
+    char const *aTitle , // NULL or ""
+char const* aMessage , // NULL or "" may contain \n \t
     char const * aIconType ); // "info" "warning" "error"
 
 int tinyfd_messageBox(
-    char const * aTitle , // NULL or ""
-    char const * aMessage , // NULL or "" may contain \n \t
-    char const * aDialogType , // "ok" "okcancel" "yesno" "yesnocancel"
-    char const * aIconType , // "info" "warning" "error" "question"
+    char const *aTitle , // NULL or ""
+char const* aMessage , // NULL or "" may contain \n \t
+    char const *aDialogType , // "ok" "okcancel" "yesno" "yesnocancel"
+char const* aIconType , // "info" "warning" "error" "question"
     int aDefaultButton );
         // 0 for cancel/no , 1 for ok/yes , 2 for no in yesnocancel
 
-char const * tinyfd_inputBox(
-    char const * aTitle , // NULL or ""
-    char const * aMessage , // NULL or "" (\n and \t have no effect)
-    char const * aDefaultInput ); // NULL for a passwordBox, "" for an inputbox
+char const *tinyfd_inputBox(
+char const* aTitle , // NULL or ""
+    char const *aMessage , // NULL or "" (\n and \t have no effect)
+char const* aDefaultInput ); // NULL for a passwordBox, "" for an inputbox
         // returns NULL on cancel
 
-char const * tinyfd_saveFileDialog(
-    char const * aTitle , // NULL or ""
-    char const * aDefaultPathAndFile , // NULL or ""
+char const *tinyfd_saveFileDialog(
+char const* aTitle , // NULL or ""
+    char const *aDefaultPathAndFile , // NULL or ""
     int aNumOfFilterPatterns , // 0 (1 in the following example)
-    char const * const * aFilterPatterns , // NULL or char const * lFilterPatterns[1]={"*.txt"};
-    char const * aSingleFilterDescription ); // NULL or "text files"
+char const* const *aFilterPatterns , // NULL or char const* lFilterPatterns[1]={"*.txt"};
+char const* aSingleFilterDescription ); // NULL or "text files"
         // returns NULL on cancel
 
-char const * tinyfd_openFileDialog(
-    char const * aTitle , // NULL or ""
-    char const * aDefaultPathAndFile , // NULL or ""
+char const *tinyfd_openFileDialog(
+char const* aTitle , // NULL or ""
+    char const *aDefaultPathAndFile , // NULL or ""
     int aNumOfFilterPatterns , // 0 (2 in the following example)
-    char const * const * aFilterPatterns , // NULL or char const * lFilterPatterns[2]={"*.png","*.jpg"};
+char const* const *aFilterPatterns , // NULL or char const* lFilterPatterns[2]={"*.png","*.jpg"};
     char const * aSingleFilterDescription , // NULL or "image files"
     int aAllowMultipleSelects ); // 0
         // in case of multiple files, the separator is |
         // returns NULL on cancel
 
-char const * tinyfd_selectFolderDialog(
-    char const * aTitle , // NULL or ""
+char const *tinyfd_selectFolderDialog(
+char const* aTitle , // NULL or ""
     char const * aDefaultPath ); // NULL or ""
         // returns NULL on cancel
 
-char const * tinyfd_colorChooser(
-    char const * aTitle , // NULL or ""
+char const *tinyfd_colorChooser(
+char const* aTitle , // NULL or ""
     char const * aDefaultHexRGB , // NULL or "#FF0000”
     unsigned char const aDefaultRGB[3] , // unsigned char lDefaultRGB[3] = { 0 , 128 , 255 };
     unsigned char aoResultRGB[3] ); // unsigned char lResultRGB[3];
@@ -177,3 +184,4 @@ Windows :
 
   VisualStudio command line :
 > cl hello.c tinyfiledialogs.c comdlg32.lib ole32.lib user32.lib shell32.lib /W4
+```
